@@ -4,8 +4,8 @@
 
 ## 운영 검증
 - 모든 변경은 `pnpm check`를 통과해야 한다.
-- 자동 merge 기본값은 꺼져 있다.
-- `.github/workflows/**`, credential, auth/security, infra, migration 변경은 R3로 취급하고 draft/proposal only로 다룬다.
+- GitHub Actions는 dry-run/check/report automation 용도로만 사용한다.
+- `.github/workflows/**`, credential, auth/security, infra, migration 변경은 R3로 취급하고 코드 변경 없이 proposal only로 다룬다.
 
 ## R0 Report
 - native control 추가 기준과 사용성 기준의 빈 부분을 분석 리포트로 정리한다.
