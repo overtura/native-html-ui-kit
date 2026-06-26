@@ -1,14 +1,16 @@
-# PROJECT_NAME
+# Native HTML UI Kit
 
-한 줄 소개를 여기에 적습니다.
+popover, details, command/commandfor, dialog, form validation 같은 브라우저 네이티브 기능만으로 구성하는 no-JS UI kit입니다. 앱 런타임에는 JavaScript를 넣지 않습니다.
 
 ## 목적
-- 무엇을 검증하는 프로젝트인지 2~3줄로 적습니다.
+- 프레임워크 없이 native HTML interaction 패턴을 축적한다.
+- 최신 HTML 기능의 사용성과 fallback을 한국어 예제로 검증한다.
+- self-improving bot이 컴포넌트 예제, 문서, workflow 개선을 자동 PR로 제안하고 merge한다.
 
 ## 사용자 flow
-1. 
-2. 
-3. 
+1. 메뉴, form, dialog, accordion 예제를 확인한다.
+2. 브라우저 기본 validation과 popover 동작을 확인한다.
+3. 후속 PR에서 컴포넌트와 fallback 문서를 확장한다.
 
 ## 실행 방법
 ```bash
@@ -21,6 +23,15 @@ pnpm dev
 pnpm check
 ```
 
+`pnpm check`는 source와 build output 모두에서 런타임 JavaScript가 없는지 검사한다.
+
+## 자가 개선
+```bash
+pnpm self-improve:context
+pnpm self-improve:guard
+```
+
 ## 범위 밖
-- 이번 MVP에서 하지 않는 것
-- 미래 작업 후보
+- 런타임 JavaScript
+- framework 컴포넌트 라이브러리
+- 실제 secret 또는 credential 저장

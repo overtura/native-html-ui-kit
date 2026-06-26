@@ -3,10 +3,95 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PROJECT_NAME</title>
+    <meta
+      name="description"
+      content="popover, details, commandfor, dialog 등 native HTML만으로 구성하는 UI kit"
+    />
+    <title>Native HTML UI Kit</title>
+    <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+    <header class="site-header">
+      <a class="brand" href="#top">Native HTML UI Kit</a>
+      <nav aria-label="컴포넌트">
+        <a href="#menus">Menus</a>
+        <a href="#forms">Forms</a>
+        <a href="#dialogs">Dialogs</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <h1>브라우저가 이미 가진 UI 계약을 다시 씁니다.</h1>
+        <p>
+          popover, details name, command/commandfor, dialog, form validation을 JavaScript 없이 조합하는
+          한국어 UI kit 실험입니다.
+        </p>
+      </section>
+
+      <section id="menus" class="component-grid" aria-labelledby="menus-title">
+        <div class="section-copy">
+          <h2 id="menus-title">Menus & Popovers</h2>
+          <p>메뉴 버튼, 도움말, 상태 패널을 HTML 속성으로 연결합니다.</p>
+        </div>
+        <article class="component-card">
+          <h3>Profile menu</h3>
+          <button popovertarget="profile-menu">프로필 메뉴</button>
+          <div id="profile-menu" class="menu" popover>
+            <a href="#forms">계정 설정</a>
+            <a href="#dialogs">확인 dialog</a>
+            <a href="#top">맨 위로</a>
+          </div>
+        </article>
+      </section>
+
+      <section id="forms" class="component-grid" aria-labelledby="forms-title">
+        <div class="section-copy">
+          <h2 id="forms-title">Forms</h2>
+          <p>브라우저 기본 validation과 CSS 상태 선택자로 입력 흐름을 만든다.</p>
+        </div>
+        <form class="component-card form-card" action="#forms">
+          <label>
+            실험 이름
+            <input name="name" required minlength="3" placeholder="예: 선언형 메뉴" />
+          </label>
+          <label>
+            중요도
+            <select name="priority">
+              <option>낮음</option>
+              <option>보통</option>
+              <option>높음</option>
+            </select>
+          </label>
+          <button type="submit">검증</button>
+        </form>
+      </section>
+
+      <section id="dialogs" class="component-grid" aria-labelledby="dialogs-title">
+        <div class="section-copy">
+          <h2 id="dialogs-title">Dialog & Accordion</h2>
+          <p>지원 브라우저에서는 commandfor로 dialog를 선언적으로 열 수 있습니다.</p>
+        </div>
+        <article class="component-card stack">
+          <button commandfor="confirm-dialog" command="show-modal">확인 dialog 열기</button>
+          <details name="kit" open>
+            <summary>접근성</summary>
+            <p>네이티브 요소가 기본 keyboard interaction과 의미를 제공한다.</p>
+          </details>
+          <details name="kit">
+            <summary>유지보수</summary>
+            <p>self-improve workflow가 컴포넌트 예제와 문서를 작은 PR로 개선한다.</p>
+          </details>
+        </article>
+      </section>
+
+      <dialog id="confirm-dialog">
+        <form method="dialog">
+          <h2>네이티브 dialog</h2>
+          <p>이 예제는 commandfor 지원 브라우저에서 JavaScript 없이 열립니다.</p>
+          <button value="close">닫기</button>
+        </form>
+      </dialog>
+    </main>
   </body>
 </html>

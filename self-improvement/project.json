@@ -1,0 +1,26 @@
+{
+  "name": "Native HTML UI Kit",
+  "kind": "html-css-only-native-ui-kit",
+  "runtime": "Static HTML + CSS + Vite build only",
+  "goal": "브라우저 네이티브 HTML UI 기능을 한국어 no-JS UI kit으로 축적하고 자동 PR로 개선한다.",
+  "allowedChangeScope": [
+    "index.html",
+    "styles.css",
+    "README.md",
+    "docs/**",
+    ".github/workflows/**",
+    ".github/prompts/**",
+    "self-improvement/**",
+    "scripts/**",
+    "package.json"
+  ],
+  "blockedChangeScope": [
+    "src/**",
+    ".env*",
+    "*.pem",
+    "*.key",
+    ".npmrc",
+    "런타임 JavaScript",
+    "실제 API key 또는 credential"
+  ]
+}
