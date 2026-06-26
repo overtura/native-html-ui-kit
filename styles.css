@@ -192,6 +192,7 @@
   }
 
   .form-card,
+  .status-card,
   .stack {
     display: grid;
     gap: 14px;
@@ -230,6 +231,75 @@
 
   input:user-valid {
     border-color: var(--color-valid);
+  }
+
+  .status-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px 16px;
+    align-items: center;
+  }
+
+  .status-row > label {
+    display: block;
+    grid-column: 1 / -1;
+    font-weight: 800;
+  }
+
+  meter,
+  progress {
+    width: 100%;
+    height: 16px;
+    accent-color: var(--color-focus);
+  }
+
+  progress {
+    overflow: hidden;
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: #e2e8f0;
+  }
+
+  progress::-webkit-progress-bar {
+    border-radius: inherit;
+    background: #e2e8f0;
+  }
+
+  progress::-webkit-progress-value {
+    border-radius: inherit;
+    background: var(--color-focus);
+  }
+
+  progress::-moz-progress-bar {
+    border-radius: inherit;
+    background: var(--color-focus);
+  }
+
+  meter::-webkit-meter-bar {
+    border: 0;
+    border-radius: var(--radius-pill);
+    background: #e2e8f0;
+  }
+
+  meter::-webkit-meter-optimum-value {
+    border-radius: var(--radius-pill);
+    background: var(--color-valid);
+  }
+
+  meter::-webkit-meter-suboptimum-value {
+    border-radius: var(--radius-pill);
+    background: var(--color-focus);
+  }
+
+  meter::-webkit-meter-even-less-good-value {
+    border-radius: var(--radius-pill);
+    background: var(--color-invalid);
+  }
+
+  .status-value {
+    color: var(--color-muted);
+    font-size: 14px;
+    font-weight: 800;
   }
 
   details {

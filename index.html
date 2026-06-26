@@ -17,6 +17,7 @@
       <nav aria-label="컴포넌트">
         <a href="#menus">Menus</a>
         <a href="#forms">Forms</a>
+        <a href="#status">Status</a>
         <a href="#dialogs">Dialogs</a>
       </nav>
     </header>
@@ -84,6 +85,40 @@
           </label>
           <button type="submit">검증</button>
         </form>
+      </section>
+
+      <section id="status" class="component-grid" aria-labelledby="status-title">
+        <div class="section-copy">
+          <h2 id="status-title">Status Indicators</h2>
+          <p>meter와 progress로 수치 상태를 semantic HTML 값으로 노출합니다.</p>
+        </div>
+        <article class="component-card status-card">
+          <h3>검증 상태</h3>
+          <div class="status-row">
+            <label for="accessibility-meter">접근성 점검 범위</label>
+            <meter
+              id="accessibility-meter"
+              min="0"
+              max="100"
+              low="40"
+              high="75"
+              optimum="90"
+              value="72"
+            >
+              72%
+            </meter>
+            <span class="status-value">72%</span>
+          </div>
+          <div class="status-row">
+            <label for="docs-progress">컴포넌트 문서화 진행</label>
+            <progress id="docs-progress" max="100" value="58">58%</progress>
+            <span class="status-value">58%</span>
+          </div>
+          <p class="field-hint">
+            값은 마크업에 남고 보조 기술은 native role과 현재 값을 읽을 수
+            있습니다.
+          </p>
+        </article>
       </section>
 
       <section id="dialogs" class="component-grid" aria-labelledby="dialogs-title">
