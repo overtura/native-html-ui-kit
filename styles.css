@@ -262,7 +262,34 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    min-height: 44px;
+    border: 1px solid transparent;
+    border-radius: var(--radius-frame);
+    padding: 8px 10px;
+    background: #f8fafc;
+    cursor: pointer;
     font-weight: 600;
+    transition:
+      background var(--motion-standard),
+      border-color var(--motion-standard),
+      box-shadow var(--motion-standard);
+  }
+
+  .choice-line:hover {
+    background: #f1f5f9;
+  }
+
+  @supports selector(.choice-line:has(input:checked)) {
+    .choice-line:has(input:checked) {
+      border-color: color-mix(in srgb, var(--color-focus) 42%, var(--color-border));
+      background: #eff6ff;
+      box-shadow: inset 0 0 0 1px rgb(37 99 235 / 8%);
+    }
+
+    .choice-line:has(input:focus-visible) {
+      border-color: var(--color-focus);
+      box-shadow: 0 0 0 3px rgb(37 99 235 / 14%);
+    }
   }
 
   .picker-grid {
