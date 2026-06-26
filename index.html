@@ -17,6 +17,7 @@
       <nav aria-label="컴포넌트">
         <a href="#menus">Menus</a>
         <a href="#forms">Forms</a>
+        <a href="#selectors">Selectors</a>
         <a href="#dialogs">Dialogs</a>
       </nav>
     </header>
@@ -84,6 +85,51 @@
           </label>
           <button type="submit">검증</button>
         </form>
+      </section>
+
+      <section id="selectors" class="component-grid" aria-labelledby="selectors-title">
+        <div class="section-copy">
+          <h2 id="selectors-title">Selectors</h2>
+          <p>fieldset, radio, checkbox, color/date picker로 선택 흐름을 구성합니다.</p>
+        </div>
+        <article class="component-card stack choice-card">
+          <h3>검토 옵션</h3>
+          <fieldset>
+            <legend>검증 범위</legend>
+            <label class="choice-line">
+              <input type="radio" name="scope" value="source" checked />
+              source 예제만
+            </label>
+            <label class="choice-line">
+              <input type="radio" name="scope" value="dist" />
+              build output까지
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>추가 확인</legend>
+            <label class="choice-line">
+              <input type="checkbox" name="checks" value="focus" checked />
+              focus ring
+            </label>
+            <label class="choice-line">
+              <input type="checkbox" name="checks" value="labels" />
+              label 연결
+            </label>
+          </fieldset>
+          <div class="picker-grid">
+            <label>
+              기준 색상
+              <input type="color" name="accent" value="#2563eb" />
+            </label>
+            <label>
+              검토일
+              <input type="date" name="review-date" />
+            </label>
+          </div>
+          <p class="field-hint">
+            각 컨트롤은 브라우저 기본 선택 UI와 keyboard interaction을 그대로 사용합니다.
+          </p>
+        </article>
       </section>
 
       <section id="dialogs" class="component-grid" aria-labelledby="dialogs-title">
