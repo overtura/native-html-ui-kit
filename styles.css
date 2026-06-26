@@ -159,6 +159,13 @@
     font-weight: 700;
   }
 
+  .field-hint {
+    margin: -6px 0 0;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
   input,
   select {
     min-height: 44px;

@@ -57,6 +57,24 @@
             <input name="name" required minlength="3" placeholder="예: 선언형 메뉴" />
           </label>
           <label>
+            컴포넌트 후보
+            <input
+              name="component"
+              list="component-options"
+              aria-describedby="component-hint"
+              placeholder="예: popover"
+            />
+          </label>
+          <datalist id="component-options">
+            <option value="popover">메뉴와 도움말 패널</option>
+            <option value="dialog">확인 흐름</option>
+            <option value="details">접기/펼치기</option>
+            <option value="form validation">입력 검증</option>
+          </datalist>
+          <p id="component-hint" class="field-hint">
+            브라우저가 제공하는 datalist 제안 목록을 JavaScript 없이 사용합니다.
+          </p>
+          <label>
             중요도
             <select name="priority">
               <option>낮음</option>
