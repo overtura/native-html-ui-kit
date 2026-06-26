@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="popover, details, commandfor, dialog 등 native HTML만으로 구성하는 UI kit"
+      content="popover, details, commandfor, dialog, form validation 같은 native HTML만으로 구성하는 UI kit"
     />
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ffffff'/%3E%3Cpath d='M16 18h32v10H16zM16 36h20v10H16z' fill='%23162033'/%3E%3C/svg%3E" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23ffffff'/%3E%3Cpath d='M16 18h32v10H16zM16 36h20v10H16z' fill='%23162033'/%3E%3C/svg%3E"
+    />
     <title>Native HTML UI Kit</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
@@ -15,15 +18,16 @@
     <header class="site-header">
       <a class="brand" href="#top">Native HTML UI Kit</a>
       <nav aria-label="컴포넌트">
-        <a href="#menus">Menus</a>
-        <a href="#forms">Forms</a>
-        <a href="#dialogs">Dialogs</a>
+        <a href="#menus">메뉴</a>
+        <a href="#forms">폼</a>
+        <a href="#inputs">입력 탐색</a>
+        <a href="#dialogs">대화상자</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero">
-        <h1>브라우저가 이미 가진 UI 계약을 다시 씁니다.</h1>
+        <h1>브라우저가 이미 가진 UI 계약을 다시 엽니다</h1>
         <p>
           popover, details name, command/commandfor, dialog, form validation을 JavaScript 없이 조합하는
           한국어 UI kit 실험입니다.
@@ -33,11 +37,11 @@
       <section id="menus" class="component-grid" aria-labelledby="menus-title">
         <div class="section-copy">
           <h2 id="menus-title">Menus & Popovers</h2>
-          <p>메뉴 버튼, 도움말, 상태 패널을 HTML 속성으로 연결합니다.</p>
+          <p>메뉴 버튼, 팝오버, 링크 목록을 HTML 속성으로 연결합니다.</p>
         </div>
         <article class="component-card">
-          <h3>Profile menu</h3>
-          <button popovertarget="profile-menu">프로필 메뉴</button>
+          <h3>프로필 메뉴</h3>
+          <button popovertarget="profile-menu">프로필 메뉴 열기</button>
           <div id="profile-menu" class="menu" popover>
             <a href="#forms">계정 설정</a>
             <a href="#dialogs">확인 dialog</a>
@@ -49,22 +53,63 @@
       <section id="forms" class="component-grid" aria-labelledby="forms-title">
         <div class="section-copy">
           <h2 id="forms-title">Forms</h2>
-          <p>브라우저 기본 validation과 CSS 상태 선택자로 입력 흐름을 만든다.</p>
+          <p>브라우저 기본 validation과 CSS 상태 선택자로 입력 흐름을 만듭니다.</p>
         </div>
         <form class="component-card form-card" action="#forms">
-          <label>
-            실험 이름
-            <input name="name" required minlength="3" placeholder="예: 선언형 메뉴" />
-          </label>
-          <label>
-            중요도
-            <select name="priority">
-              <option>낮음</option>
-              <option>보통</option>
-              <option>높음</option>
-            </select>
-          </label>
-          <button type="submit">검증</button>
+          <h3>검증 폼</h3>
+          <label for="example-name">예제 이름</label>
+          <input
+            id="example-name"
+            name="name"
+            required
+            minlength="3"
+            placeholder="예: 선언형 메뉴"
+            aria-describedby="example-name-help"
+          />
+          <p id="example-name-help" class="field-help">
+            required와 minlength는 브라우저 기본 검증으로 처리됩니다.
+          </p>
+
+          <label for="example-priority">중요도</label>
+          <select id="example-priority" name="priority">
+            <option>낮음</option>
+            <option>보통</option>
+            <option>높음</option>
+          </select>
+
+          <button type="submit">검증하기</button>
+        </form>
+      </section>
+
+      <section id="inputs" class="component-grid" aria-labelledby="inputs-title">
+        <div class="section-copy">
+          <h2 id="inputs-title">Datalist Search</h2>
+          <p>검색 입력과 datalist 후보를 묶어, 작은 컴포넌트 탐색기를 JavaScript 없이 제공합니다.</p>
+        </div>
+        <form class="component-card form-card" action="#inputs" role="search">
+          <h3>컴포넌트 찾기</h3>
+          <label for="component-search">관심 있는 native control</label>
+          <input
+            id="component-search"
+            name="component"
+            type="search"
+            list="component-options"
+            placeholder="예: popover"
+            autocomplete="off"
+            required
+            aria-describedby="component-search-help"
+          />
+          <datalist id="component-options">
+            <option value="popover">팝오버 메뉴</option>
+            <option value="dialog">모달 대화상자</option>
+            <option value="details">아코디언 disclosure</option>
+            <option value="validation">폼 검증</option>
+            <option value="commandfor">선언형 명령 버튼</option>
+          </datalist>
+          <p id="component-search-help" class="field-help">
+            입력을 시작하면 브라우저가 datalist 후보를 표시합니다. 값이 비어 있으면 native validation이 동작합니다.
+          </p>
+          <button type="submit">선택 확인</button>
         </form>
       </section>
 
@@ -77,11 +122,11 @@
           <button commandfor="confirm-dialog" command="show-modal">확인 dialog 열기</button>
           <details name="kit" open>
             <summary>접근성</summary>
-            <p>네이티브 요소가 기본 keyboard interaction과 의미를 제공한다.</p>
+            <p>네이티브 요소가 기본 keyboard interaction과 이름을 제공합니다.</p>
           </details>
           <details name="kit">
             <summary>유지보수</summary>
-            <p>중앙 maintainer bot이 컴포넌트 예제와 문서를 작은 PR로 개선한다.</p>
+            <p>중앙 maintainer bot은 컴포넌트 예제와 문서를 작은 PR로 개선합니다.</p>
           </details>
         </article>
       </section>

@@ -38,6 +38,11 @@
   select {
     font: inherit;
   }
+
+  :where(a, button, input, select, summary):focus-visible {
+    outline: 3px solid color-mix(in srgb, var(--color-focus) 70%, white);
+    outline-offset: 3px;
+  }
 }
 
 @layer layout {
@@ -153,8 +158,6 @@
   }
 
   label {
-    display: grid;
-    gap: 8px;
     color: var(--color-text);
     font-weight: 700;
   }
@@ -168,12 +171,19 @@
     background: white;
   }
 
-  input:invalid {
+  input:not(:placeholder-shown):invalid {
     border-color: var(--color-invalid);
   }
 
   input:valid {
     border-color: var(--color-valid);
+  }
+
+  .field-help {
+    margin: -6px 0 2px;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.55;
   }
 
   details {
