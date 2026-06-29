@@ -189,6 +189,18 @@
       left: anchor(left);
       margin: 8px 0 0;
     }
+
+    button[popovertarget='email-help'] {
+      anchor-name: --email-help-trigger;
+    }
+
+    #email-help:popover-open {
+      position-anchor: --email-help-trigger;
+      inset: auto;
+      top: anchor(bottom);
+      right: anchor(right);
+      margin: 8px 0 0;
+    }
   }
 
   .form-card,
@@ -213,6 +225,71 @@
     color: var(--color-muted);
     font-size: 14px;
     line-height: 1.6;
+  }
+
+  .field-group {
+    display: grid;
+    gap: 8px;
+  }
+
+  .field-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .field-heading label {
+    display: block;
+  }
+
+  .help-trigger {
+    width: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    padding: 0;
+    border-radius: 50%;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .help-popover {
+    width: min(280px, calc(100vw - 32px));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-frame);
+    padding: 14px 16px;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-popover);
+  }
+
+  .help-popover p {
+    margin: 8px 0 0;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  .validation-message {
+    display: none;
+    margin: -2px 0 0;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.55;
+  }
+
+  .validation-message-invalid {
+    color: var(--color-invalid);
+  }
+
+  .validation-message-valid {
+    color: var(--color-valid);
+  }
+
+  @supports selector(.field-group:has(input:user-invalid)) {
+    .field-group:has(input:user-invalid) .validation-message-invalid,
+    .field-group:has(input:user-valid) .validation-message-valid {
+      display: block;
+    }
   }
 
   input:not([type='radio']):not([type='checkbox']),
