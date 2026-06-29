@@ -57,6 +57,41 @@
             실험 이름
             <input name="name" required minlength="3" placeholder="예: 선언형 메뉴" />
           </label>
+          <div class="field-group">
+            <div class="field-heading">
+              <label for="review-email">검토자 이메일</label>
+              <button
+                type="button"
+                class="help-trigger"
+                popovertarget="email-help"
+                aria-label="이메일 검증 도움말"
+              >
+                ?
+              </button>
+            </div>
+            <input
+              id="review-email"
+              name="email"
+              type="email"
+              required
+              autocomplete="email"
+              placeholder="ui@example.com"
+              aria-describedby="email-hint email-invalid email-valid"
+            />
+            <p id="email-hint" class="field-hint">
+              제출 전 브라우저가 필수 입력과 이메일 형식을 검증합니다.
+            </p>
+            <p id="email-invalid" class="validation-message validation-message-invalid">
+              필수 이메일 형식을 확인하세요.
+            </p>
+            <p id="email-valid" class="validation-message validation-message-valid">
+              이메일 형식이 유효합니다.
+            </p>
+            <div id="email-help" class="help-popover" popover>
+              <strong>Native validation</strong>
+              <p>required와 type=email만으로 빈 값과 이메일 형식 오류를 브라우저가 처리합니다.</p>
+            </div>
+          </div>
           <label>
             컴포넌트 후보
             <input
